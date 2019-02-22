@@ -1,0 +1,161 @@
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 21, 2019 - 09:54:03
+Django version 1.8.2, using settings 'dailyfresh.settings'
+Starting development server at http://0.0.0.0:9999/
+Quit the server with CONTROL-C.
+[21/Feb/2019 09:54:19]"GET /user/register HTTP/1.1" 200 2560
+[21/Feb/2019 09:54:19]"GET /favicon.ico HTTP/1.1" 404 2533
+[21/Feb/2019 09:56:30]"POST /user/register_handle HTTP/1.1" 500 72843
+[21/Feb/2019 12:16:24]"POST /user/register_handle HTTP/1.1" 403 2274
+[21/Feb/2019 12:16:24]"GET /favicon.ico HTTP/1.1" 404 2533
+[21/Feb/2019 12:17:49]"POST /user/register_handle HTTP/1.1" 403 2274
+[21/Feb/2019 12:17:52]"POST /user/register_handle HTTP/1.1" 403 2274
+[21/Feb/2019 12:18:15]"POST /user/register_handle HTTP/1.1" 403 2274
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 21, 2019 - 09:54:09
+Django version 1.8.2, using settings 'dailyfresh.settings'
+Starting development server at http://0.0.0.0:9999/
+Quit the server with CONTROL-C.
+Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/management/__init__.py", line 338, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.6/dist-packages/django/core/management/__init__.py", line 303, in execute
+    settings.INSTALLED_APPS
+  File "/usr/local/lib/python3.6/dist-packages/django/conf/__init__.py", line 48, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python3.6/dist-packages/django/conf/__init__.py", line 44, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python3.6/dist-packages/django/conf/__init__.py", line 92, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 941, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'dailyfresh'
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 67, in apport_excepthook
+    binary = os.path.realpath(os.path.join(os.getcwd(), sys.argv[0]))
+FileNotFoundError: [Errno 2] No such file or directory
+
+Original exception was:
+Traceback (most recent call last):
+  File "manage.py", line 10, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.6/dist-packages/django/core/management/__init__.py", line 338, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.6/dist-packages/django/core/management/__init__.py", line 303, in execute
+    settings.INSTALLED_APPS
+  File "/usr/local/lib/python3.6/dist-packages/django/conf/__init__.py", line 48, in __getattr__
+    self._setup(name)
+  File "/usr/local/lib/python3.6/dist-packages/django/conf/__init__.py", line 44, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/usr/local/lib/python3.6/dist-packages/django/conf/__init__.py", line 92, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/usr/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 941, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'dailyfresh'
+[21/Feb/2019 12:44:12]"GET /user/register HTTP/1.1" 200 2656
+[21/Feb/2019 12:44:41]"GET /user/register HTTP/1.1" 200 2656
+[21/Feb/2019 12:49:28]"POST /user/register_handle HTTP/1.1" 500 72843
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 21, 2019 - 12:43:56
+Django version 1.8.2, using settings 'dailyfresh.settings'
+Starting development server at http://0.0.0.0:9999/
+Quit the server with CONTROL-C.
+[21/Feb/2019 12:58:23]"POST /user/register_handle HTTP/1.1" 500 102642
+[21/Feb/2019 13:00:38]"POST /user/register_handle HTTP/1.1" 500 177852
+[21/Feb/2019 13:01:20]"POST /user/register_handle HTTP/1.1" 302 0
+[21/Feb/2019 13:01:20]"GET / HTTP/1.1" 200 10898
+[21/Feb/2019 13:01:20]"GET /static/images/logo.png HTTP/1.1" 200 9987
+[21/Feb/2019 13:01:20]"GET /js/slideshow.js HTTP/1.1" 404 2545
+[21/Feb/2019 13:01:20]"GET /static/images/slide.jpg HTTP/1.1" 200 43271
+[21/Feb/2019 13:01:20]"GET /static/images/slide04.jpg HTTP/1.1" 200 62570
+[21/Feb/2019 13:01:20]"GET /static/images/slide02.jpg HTTP/1.1" 200 46855
+[21/Feb/2019 13:01:20]"GET /static/images/slide03.jpg HTTP/1.1" 200 70593
+[21/Feb/2019 13:01:20]"GET /images/goods/goods002.jpg HTTP/1.1" 404 2575
+[21/Feb/2019 13:01:20]"GET /images/goods/goods001.jpg HTTP/1.1" 404 2575
+[21/Feb/2019 13:01:20]"GET /images/goods/goods012.jpg HTTP/1.1" 404 2575
+[21/Feb/2019 13:01:20]"GET /images/banner02.jpg HTTP/1.1" 404 2557
+[21/Feb/2019 13:01:20]"GET /static/images/adv01.jpg HTTP/1.1" 200 13988
+[21/Feb/2019 13:01:20]"GET /static/images/adv02.jpg HTTP/1.1" 200 15859
+[21/Feb/2019 13:01:20]"GET /static/images/banner01.jpg HTTP/1.1" 200 9919
+[21/Feb/2019 13:01:20]"GET /images/goods/goods018.jpg HTTP/1.1" 404 2575
+[21/Feb/2019 13:01:20]"GET /images/goods/goods019.jpg HTTP/1.1" 404 2575
+[21/Feb/2019 13:01:20]"GET /images/goods/goods021.jpg HTTP/1.1" 404 2575
+[21/Feb/2019 13:01:20]"GET /images/goods/goods020.jpg HTTP/1.1" 404 2575
+[21/Feb/2019 13:01:20]"GET /static/images/icons.png HTTP/1.1" 200 5931
+[21/Feb/2019 13:01:20]"GET /images/goods.jpg HTTP/1.1" 404 2548
+[21/Feb/2019 13:01:20]"GET /images/banner04.jpg HTTP/1.1" 404 2557
+[21/Feb/2019 13:01:20]"GET /images/banner03.jpg HTTP/1.1" 404 2557
+[21/Feb/2019 13:01:20]"GET /images/banner05.jpg HTTP/1.1" 404 2557
+[21/Feb/2019 13:01:20]"GET /images/banner06.jpg HTTP/1.1" 404 2557
+[21/Feb/2019 13:01:20]"GET /static/images/goods/goods003.jpg HTTP/1.1" 200 9612
+[22/Feb/2019 02:56:46]"GET / HTTP/1.1" 200 10904
+[22/Feb/2019 02:56:46]"GET /images/goods/goods002.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:56:46]"GET /images/goods/goods001.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:56:46]"GET /js/slideshow.js HTTP/1.1" 404 2545
+[22/Feb/2019 02:56:46]"GET /images/goods/goods012.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:56:46]"GET /images/banner02.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:56:46]"GET /images/goods/goods018.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:56:46]"GET /images/goods/goods019.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:56:46]"GET /images/goods/goods020.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:56:46]"GET /images/goods/goods021.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:56:46]"GET /images/banner03.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:56:46]"GET /images/banner04.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:56:46]"GET /images/banner05.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:56:46]"GET /images/goods.jpg HTTP/1.1" 404 2548
+[22/Feb/2019 02:56:46]"GET /images/banner06.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:56:48]"GET /user/register.html HTTP/1.1" 404 2822
+[22/Feb/2019 02:57:27]"GET /user/register.html HTTP/1.1" 404 2822
+[22/Feb/2019 02:57:30]"GET / HTTP/1.1" 200 10899
+[22/Feb/2019 02:57:30]"GET /images/goods/goods002.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:30]"GET /images/goods/goods001.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:30]"GET /images/goods/goods012.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:30]"GET /images/goods/goods018.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:30]"GET /images/banner02.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:30]"GET /images/goods/goods019.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:30]"GET /js/slideshow.js HTTP/1.1" 404 2545
+[22/Feb/2019 02:57:30]"GET /images/goods/goods020.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:30]"GET /images/goods/goods021.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:30]"GET /images/banner04.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:30]"GET /images/banner03.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:30]"GET /images/goods.jpg HTTP/1.1" 404 2548
+[22/Feb/2019 02:57:30]"GET /images/banner05.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:30]"GET /images/banner06.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:31]"GET /user/register HTTP/1.1" 200 2656
+[22/Feb/2019 02:57:31]"GET /images/banner05.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:31]"GET /images/banner06.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:33]"GET /images/goods/goods012.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:33]"GET /images/banner05.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:33]"GET /images/goods/goods018.jpg HTTP/1.1" 404 2575
+[22/Feb/2019 02:57:33]"GET /images/banner06.jpg HTTP/1.1" 404 2557
+[22/Feb/2019 02:57:40]"GET /user/register HTTP/1.1" 200 2656
+[22/Feb/2019 05:59:22]"GET /favicon.ico HTTP/1.1" 404 2533
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 21, 2019 - 12:57:34
+Django version 1.8.2, using settings 'dailyfresh.settings'
+Starting development server at http://0.0.0.0:9999/
+Quit the server with CONTROL-C.

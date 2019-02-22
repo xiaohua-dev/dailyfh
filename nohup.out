@@ -1,0 +1,7 @@
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 21, 2019 - 09:53:49
+Django version 1.8.2, using settings 'dailyfresh.settings'
+Starting development server at http://0.0.0.0:9999/
+Quit the server with CONTROL-C.
