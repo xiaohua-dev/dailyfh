@@ -121,3 +121,10 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': 600,
     'height': 400,
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'wuxiaoyanhenni@163.com'
+EMAIL_HOST_PASSWORD = 'xp15960985368'
+EMAIL_FROM = 'test-python<wuxiaoyanhenni@163.com>'
