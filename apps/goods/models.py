@@ -84,7 +84,7 @@ class IndexTypeGoodsBanner(BaseModel):
         (1, "图片")
     )
 
-    type = models.ForeignKey('GoodsType', verbose_name='商品类型')
+    type = models.ForeignKey('GoodsType',verbose_name='商品类型')
     sku = models.ForeignKey('GoodsSKU', verbose_name='商品SKU')
     display_type = models.SmallIntegerField(default=1, choices=DISPLAY_TYPE_CHOICES, verbose_name='展示类型')
     index = models.SmallIntegerField(default=0, verbose_name='展示顺序')

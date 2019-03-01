@@ -6,7 +6,9 @@ from django.conf import settings
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from itsdangerous import SignatureExpired
 from django.http import HttpResponse
-from django.core.mail import send_mail
+from celery_tasks.tasks import send_register_active_email
+# 认证模块
+from django.contrib.auth import authenticate, login
 import re
 
 # Create your views here.
@@ -134,14 +136,8 @@ class RegisterView(View):
         token = serializer.dumps(info)
         token = token.decode('utf-8')
 
-        # 邮件发送
-        subject = "欢迎登录商城"
-        message = ""
-        sender = settings.EMAIL_FROM
-        receiver = [email]
-        html_message = '<h1>%s, 欢迎您成为本商城注册会员</h1>请点击下面的链接进行用户激活<br/><a href="http://10.77.2.223:9999/user/active/%s">http://10.77.2.223:9999/user/active/%s</a>'%(username,token,token)
-        send_mail(subject, message, sender, receiver, html_message=html_message)
-
+        # 发出异步执行的函数
+        send_register_active_email.delay(email, username, token)
 
         return redirect(reverse('goods:index'))
 
@@ -159,16 +155,57 @@ class ActiveView(View):
             user = User.objects.get(id=user_id)
             user.is_active = 1
             user.save()
-            return  redirect(reverse('user:login'))
+            return redirect(reverse('user:login'))
         except SignatureExpired as sig:
             # 实际项目中应该让其点击发送激活邮件
             return HttpResponse("激活链接过去")
 
 
-
-
 class LoginView(View):
     """登录"""
-    def get(self,request):
-        return render(request, 'login.html')
+    def get(self, request):
+        #return render(request, 'login.html')
+        if 'username' in request.COOKIES:
+            username = request.COOKIES.get('username')
+            checked = 'checked'
+        else:
+            username = ''
+            checked = ''
+
+        return render(request, 'login.html', {'username': username, 'checked': checked})
+
+
+    def post(self, request):
+        username = request.POST.get("username")
+        password = request.POST.get("pwd")
+
+        if not all([username, password]):
+            return render(request, 'login.html', {'errmsg': '数据不完整'})
+
+
+        user = authenticate(username=username,password=password)
+
+        if user is not None:
+            if user.is_active:
+                # 用户已激活
+                # 记录用户登录状态
+                login(request, user)
+
+                response = redirect(reverse('goods:index'))
+
+                remember = request.POST.get('remember')
+                print(remember)
+
+                if remember == 'on':
+                    response.set_cookie('username',username, max_age=7*24*3600)
+                else:
+                    response.delete_cookie('username')
+
+                return response
+            else:
+                return render(request, 'login.html', {'errmsg': '账户未激活，请激活'})
+        else:
+            return render(request, 'login.html', {'errmsg': '账号或密码错误'})
+
+
 

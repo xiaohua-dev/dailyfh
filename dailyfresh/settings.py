@@ -128,3 +128,22 @@ EMAIL_PORT = 25
 EMAIL_HOST_USER = 'wuxiaoyanhenni@163.com'
 EMAIL_HOST_PASSWORD = 'xp15960985368'
 EMAIL_FROM = 'test-python<wuxiaoyanhenni@163.com>'
+
+# cache backend 使用配置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://10.77.2.223:6379/10",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+
+# 作为 session backend 使用配置
+# Django 默认可以使用任何 cache backend 作为 session backend, 将 django-redis 作为 session 储存后端不用安装任何额外的 backend
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
