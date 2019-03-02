@@ -2,7 +2,6 @@ from django.db import models
 from db.base_model import BaseModel
 # Create your models here.
 
-
 class OrderInfo(BaseModel):
     '''订单模型类'''
     PAY_METHOD_CHOICES = (

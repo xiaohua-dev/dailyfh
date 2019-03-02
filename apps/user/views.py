@@ -50,7 +50,6 @@ def register(request):
 
         return redirect(reverse('goods:index'))
 
-
 def register_handle(request):
     # 获取客户端传入注册信息
     username = request.POST.get("user_name")
@@ -84,7 +83,6 @@ def register_handle(request):
     user = User.objects.create_user(username, pwd, email)
 
     return redirect(reverse('goods:index'))
-
 
 class RegisterView(View):
     '''注册'''
@@ -160,7 +158,6 @@ class ActiveView(View):
             # 实际项目中应该让其点击发送激活邮件
             return HttpResponse("激活链接过去")
 
-
 class LoginView(View):
     """登录"""
     def get(self, request):
@@ -206,6 +203,27 @@ class LoginView(View):
                 return render(request, 'login.html', {'errmsg': '账户未激活，请激活'})
         else:
             return render(request, 'login.html', {'errmsg': '账号或密码错误'})
+
+class UserInfoView(View):
+    def get(self,request):
+        return render(request, 'user_center_info.html')
+
+class UserOrderView(View):
+    def get(self,request):
+        return render(request, 'user_center_order.html')
+
+class UserSiteView(View):
+    def get(self,request):
+        return render(request, 'user_center_site.html')
+
+
+
+
+
+
+
+
+
 
 
 
