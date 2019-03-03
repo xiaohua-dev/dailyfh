@@ -188,7 +188,9 @@ class LoginView(View):
                 # 记录用户登录状态
                 login(request, user)
 
-                response = redirect(reverse('goods:index'))
+                # 登录之后页面跳转，重要******；获取未登录时访问的页面
+                next_url = request.GET.get('next', reverse('goods:index'))
+                response = redirect(next_url)
 
                 remember = request.POST.get('remember')
                 print(remember)

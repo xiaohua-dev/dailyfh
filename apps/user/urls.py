@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required #登录页面跳转
 #from user import views
 from user.views import RegisterView, ActiveView, LoginView,UserInfoView,UserOrderView,UserSiteView
 
