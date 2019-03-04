@@ -8,7 +8,8 @@ from itsdangerous import SignatureExpired
 from django.http import HttpResponse
 from celery_tasks.tasks import send_register_active_email
 # 认证模块
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout # logout 退出清除
+from utils.mixin import LoginRequiredMixin #访问页面之前登录验证接口
 import re
 
 # Create your views here.
@@ -206,17 +207,32 @@ class LoginView(View):
         else:
             return render(request, 'login.html', {'errmsg': '账号或密码错误'})
 
+class LogoutView(LoginRequiredMixin,View):
+    def get(self,requst):
+        '''退出登录'''
+        # 清除session信息
+        logout(requst)
+
+        return redirect(reverse('goods:index'))
+
 class UserInfoView(View):
     def get(self,request):
-        return render(request, 'user_center_info.html', {'page': 'user'})
+        # page='user'
+        # request.user
+        # 如果用户未登录-> AnonymouseUser类的实例
+        # 如果用户登录-> User类的一个实例
+        # request.user.is_authenticated（）
 
-class UserOrderView(View):
-    def get(self,request):
-        return render(request, 'user_center_order.html', {'page': 'order'})
+        # 除了你给模板文件传递的模板变量之外，django框架会把request.user也传给模板文件
+        return render(request, 'user_center_info.html', {'page':'user'})
 
-class UserSiteView(View):
+class UserOrderView(LoginRequiredMixin, View):
     def get(self,request):
-        return render(request, 'user_center_site.html', {'page': 'address'})
+        return render(request, 'user_center_order.html', {'page':'order'})
+
+class UserSiteView(LoginRequiredMixin, View):
+    def get(self,request):
+        return render(request, 'user_center_site.html', {'page':'address'})
 
 
 
