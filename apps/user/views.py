@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.core.urlresolvers import reverse
-from user.models import User
+from user.models import User, Address
 from django.views.generic import View
 from django.conf import settings
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
@@ -79,7 +79,7 @@ def register_handle(request):
         user = None
 
     if user:
-        return  render(request, 'register.html', {"errmsg": "用户已存在"})
+        return render(request, 'register.html', {"errmsg": "用户已存在"})
 
     user = User.objects.create_user(username, pwd, email)
 
@@ -230,16 +230,58 @@ class UserOrderView(LoginRequiredMixin, View):
     def get(self,request):
         return render(request, 'user_center_order.html', {'page':'order'})
 
-class UserSiteView(LoginRequiredMixin, View):
+#class UserSiteView(LoginRequiredMixin, View):
+#    def get(self,request):
+#        return render(request, 'user_center_site.html', {'page':'address'})
+
+
+
+class AddressView(LoginRequiredMixin,View):
     def get(self,request):
-        return render(request, 'user_center_site.html', {'page':'address'})
+        user = request.user
+
+        try:
+            address = Address.objects.get(user=user, is_default=True)
+        except Address.DoesNotExist:
+            address = None
+
+        return render(request, 'user_center_site.html', {'page': 'address','address': address})
+
+    def post(self,request):
+        recevier = request.POST.get('recevier')
+        addr = request.POST.get('addr')
+        zip_code = request.POST.get('zip_code')
+        phone = request.POST.get('phone')
+
+        if not all([recevier, addr, phone]):
+            return render(request, 'user_center_site.html', {'errmsg': '数据不完整'})
+
+        if not re.match(r'^1[3|4|5|7|8][0-9]{9}$', phone):
+            return render(request, 'user_center_site.html', {'errmsg': '手机格式不正确'})
+
+        user = request.user
+
+        try:
+            address = Address.objects.get(user=user, is_default=True)
+        except Address.DoesNotExist:
+            address = None
+
+        if address:
+            is_default = False
+        else:
+            is_default = True
 
 
+        Address.objects.create(
+            user=user,
+            receiver=recevier,
+            addr = addr,
+            zip_code = zip_code,
+            phone = phone,
+            is_default=is_default
+        )
 
-
-
-
-
+        return redirect(reverse('user:address'))
 
 
 
